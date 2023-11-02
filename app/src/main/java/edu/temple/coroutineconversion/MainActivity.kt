@@ -31,12 +31,13 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.revealButton).setOnClickListener{
             CoroutineScope(Dispatchers.Main).launch {
-                revealCake()
+                scope()
             }
         }
+
     }
 
-    private suspend fun revealCake() = withContext(Dispatchers.Default) {
+    private suspend fun scope() = withContext(Dispatchers.Default) {
         repeat(100){
             delay(40)
             withContext(Dispatchers.Main){
